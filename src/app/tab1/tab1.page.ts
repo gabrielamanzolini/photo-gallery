@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  currentImage: any;
+  constructor(public photoService: PhotoService) {}
 
-  constructor() {}
-
+  ngOnInit() {
+    this.photoService.loadSaved();
+  }
 }
